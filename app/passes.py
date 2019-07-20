@@ -11,7 +11,7 @@ max_char = 12
 def pass_gen(name,email):
 	img = Image.open("app/static/passes/pass.jpeg")
 	draw = ImageDraw.Draw(img)
-	font = ImageFont.truetype("app/static/Quicksand_Bold.otf",32)
+	font = ImageFont.truetype("app/static/Quicksand-Bold.otf",32)
 	s = "".join(random.choice(allchar) for x in range(random.randint(min_char, max_char)))
 	s_path = "app/static/passes/" + s + ".png"
 	if len(name)>=18:

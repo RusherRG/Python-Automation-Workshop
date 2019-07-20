@@ -9,7 +9,7 @@ def sendMail(email,ImgFileName):
     smtp_server = "smtp.gmail.com"
     port = 587 
     #Enter sender and reviever emails below
-    sender = "sample@example.com"
+    sender = str(os.environ.get('SENDER_EMAIL'))
     #Sender mail should have less secure apps enabled or use app password 
     reciever = email
     
@@ -47,7 +47,7 @@ def sendMail(email,ImgFileName):
     txt.attach(str1)
     
     # This example assumes the image is in the current directory
-    fp = open(ImgFileName, 'rb')
+    fp = open('app/static/passes/'+ImgFileName, 'rb')
     msgImage = MIMEImage(fp.read())
     fp.close()
 
@@ -57,10 +57,11 @@ def sendMail(email,ImgFileName):
 
     
     #Input password from user 
-    password = ''
+    password = str(os.environ.get('APP_PASSWD'))
     con = ssl.create_default_context()
     server = smtplib.SMTP(smtp_server, port)
     FROMADDR = "%s <%s>" % ('KJSCE CodeCell', sender)
+
     server.starttls()
     server.login(sender, password)
     # Spam people :P

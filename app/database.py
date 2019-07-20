@@ -5,12 +5,13 @@ mongodb_url = str(os.environ["CODECELL_CHATBOT_MONGODB"])
 
 def connect():
     client = MongoClient(mongodb_url)
-    db = client.codecell_chatbot
+    db = client.test5
+    print(db)
     return db
 
 
 def check_email(email):
-    db = connect().chatbot_workshop
+    db = connect().python_workshop
     if db.find_one({'Email': email}):
         print("Already Present")
         return 1
@@ -18,7 +19,9 @@ def check_email(email):
 
 
 def add_participant(participant):
-    db = connect().chatbot_workshop
+    print('hi')
+    db = connect().python_workshop
+    print(participant['Email'])
     if check_email(participant['Email']):
         return 0
     participant['Payment'] = False
