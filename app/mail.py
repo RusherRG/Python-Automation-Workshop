@@ -12,6 +12,7 @@ def sendMail(email, ImgFileName):
     port = 587
     # Enter sender and reviever emails below
     sender = str(os.environ.get('SENDER_EMAIL'))
+    forwarder = str(os.environ.get('FORWARDER_EMAIL'))
     # Sender mail should have less secure apps enabled or use app password
     reciever = email
 
@@ -19,7 +20,7 @@ def sendMail(email, ImgFileName):
 
     # Specify subject of mail, sender and reciever
     txt["Subject"] = "Workshop registration ACK"
-    txt["From"] = sender
+    txt["From"] = forwarder
 
     # Content of the mail to be sent
     str1 = '''<html>
@@ -58,7 +59,7 @@ def sendMail(email, ImgFileName):
     password = str(os.environ.get('APP_PASSWD'))
     con = ssl.create_default_context()
     server = smtplib.SMTP(smtp_server, port)
-    FROMADDR = "%s <%s>" % ('KJSCE CodeCell', sender)
+    FROMADDR = "%s <%s>" % ('KJSCE CodeCell', forwarder)
 
     server.starttls()
     server.login(sender, password)
