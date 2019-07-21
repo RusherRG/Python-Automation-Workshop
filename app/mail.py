@@ -66,5 +66,3 @@ def sendMail(email, ImgFileName):
     # Spam people :P
     # for reciever in recievers:
     server.sendmail(FROMADDR, reciever, txt.as_string())
-
-    print("Succesfully sent the mails!")
