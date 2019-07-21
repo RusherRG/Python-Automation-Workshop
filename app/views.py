@@ -5,9 +5,10 @@ from flask import request
 import datetime
 import traceback
 from app import database, passes, mail
-
+from flask_cors import cross_origin
 
 @app.route('/register', methods=['POST'])
+@cross_origin(supports_credentials=True)
 def register():
     content = request.json
     content['time_filled'] = datetime.datetime.now()
