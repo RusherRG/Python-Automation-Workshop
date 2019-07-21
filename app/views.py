@@ -19,9 +19,8 @@ def register():
     try:
         passimg = passes.pass_gen(
             content['Name'], content['Email'], content['payment'])
-        mail.sendMail(content['Email'], passimg)
+        mail.sendMail(content['Email'], content['Name'], passimg)
         database.add_participant(content)
-
     except Exception as exc:
         print(exc)
         return "Fail"

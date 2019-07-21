@@ -5,9 +5,10 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.image import MIMEImage
 import os
+from flask import render_template
 
 
-def sendMail(email, ImgFileName):
+def sendMail(email, name, ImgFileName):
     smtp_server = "smtp.gmail.com"
     port = 587
     # Enter sender and reviever emails below
@@ -23,29 +24,10 @@ def sendMail(email, ImgFileName):
     txt["From"] = forwarder
 
     # Content of the mail to be sent
-    str1 = '''<html>
-            <body>
-            
-                <p>
-                Hola! I see you've signed up for our workshop😃. The details for the workshop are as follows : 
-                </p>
-                <p>
-                Hope you have filled the right details as the same will be used for the <b>certificates</b>.
-                </p>
-                <br>
-                <b>Venue: </b> B-215, KJ Somaiya College Of Engineering, Vidyavihar.
-                <br>
-                <b>Timing: </b> 10:00 - 5:00
-                <br>
-                Here is your pass for the event <img src="cid:image1">
-                <br>
-                <b>You are supposed to deposit INR 50 </b>(refundable at the venue on the day of the event) either by Paytm (to 7045185177) or in cash to any of the council members in room B-111 by Friday, 22nd March, 2019,<b without which your registration will be deemed null and void.</b>
-                <br>
-            </body>
-            </html>'''
+    str1 = render_template('register.html',name=name)
     str1 = MIMEText(str1, "html")
     txt.attach(str1)
-
+    
     # This example assumes the image is in the current directory
     fp = open('app/static/passes/'+ImgFileName, 'rb')
     msgImage = MIMEImage(fp.read())
