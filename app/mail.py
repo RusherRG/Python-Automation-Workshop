@@ -22,6 +22,7 @@ def sendMail(email, name, ImgFileName):
     # Specify subject of mail, sender and reciever
     txt["Subject"] = "Workshop registration ACK"
     txt["From"] = forwarder
+    txt["To"] = reciever
 
     # Content of the mail to be sent
     str1 = render_template('register.html',name=name)
