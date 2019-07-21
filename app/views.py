@@ -3,6 +3,7 @@ from app import app
 import requests
 from flask import request
 import datetime
+import traceback
 from app import database, passes, mail
 
 
@@ -10,18 +11,18 @@ from app import database, passes, mail
 def register():
     content = request.json
     content['time_filled'] = str(datetime.datetime.now().time())
-
+    content['Payment'] = False
     # insert data to mongo
     if database.check_email(content['Email']):
         return 'Already Registered'
 
     try:
         passimg = passes.pass_gen(
-            content['Name'], content['Email'], content['payment'])
+            content['Name'], content['Email'], content['Payment'])
         mail.sendMail(content['Email'], content['Name'], passimg)
         database.add_participant(content)
-    except Exception as exc:
-        print(exc)
+    except:
+        traceback.print_exc()
         return "Fail"
 
     # send confirmation mail
