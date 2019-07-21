@@ -12,6 +12,7 @@ def sendmail(to_email, name, seats_rem=0):
     from_email = str(os.environ.get("SENDER_EMAIL"))
     forwarder = str(os.environ.get("FORWARDER_EMAIL"))
     msg = MIMEMultipart('alternative')
+    msg['Label'] = "Python-Automation"
     msg['Subject'] = "Payment Reminder"
     msg['From'] = forwarder
     msg['To'] = to_email
