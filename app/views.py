@@ -9,7 +9,6 @@ from app import database, passes, mail
 @app.route('/register', methods=['POST'])
 def register():
     content = request.json
-    content['payment'] = False
     content['time_filled'] = str(datetime.datetime.now().time())
 
     # insert data to mongo
