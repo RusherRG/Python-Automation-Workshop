@@ -3,6 +3,7 @@ from app import app
 import requests
 from flask import request
 import datetime
+import traceback
 from app import database, passes, mail
 from flask_cors import cross_origin
 
@@ -10,20 +11,20 @@ from flask_cors import cross_origin
 @cross_origin(supports_credentials=True)
 def register():
     content = request.json
-    content['payment'] = False
-    content['time_filled'] = str(datetime.datetime.now().time())
+    content['time_filled'] = datetime.datetime.now()
+    content['Payment'] = False
+    # insert data to mongo
+    if database.check_email(content['Email']):
+        return 'Already Registered'
 
     try:
         passimg = passes.pass_gen(
-            content['Name'], content['Email'], content['payment'])
+            content['Name'], content['Email'], content['Payment'])
         mail.sendMail(content['Email'], content['Name'], passimg)
-    except Exception as exc:
-        print(exc)
+        database.add_participant(content)
+    except:
+        traceback.print_exc()
         return "Fail"
-
-    # insert data to mongo
-    if not database.add_participant(content):
-        return 'Fail'
 
     # send confirmation mail
     return 'Registered Succesfully'

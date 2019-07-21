@@ -24,29 +24,7 @@ def sendMail(email, name, ImgFileName):
     txt["From"] = forwarder
 
     # Content of the mail to be sent
-    # str1 = '''<html>
-    #         <body>
-            
-    #             <p>
-    #             Hola! I see you've signed up for our workshop😃. The details for the workshop are as follows : 
-    #             </p>
-    #             <p>
-    #             Hope you have filled the right details as the same will be used for the <b>certificates</b>.
-    #             </p>
-    #             <br>
-    #             <b>Venue: </b> B-215, KJ Somaiya College Of Engineering, Vidyavihar.
-    #             <br>
-    #             <b>Timing: </b> 10:00 - 5:00
-    #             <br>
-    #             Here is your pass for the event <img src="cid:image1">
-    #             <br>
-    #             <b>You are supposed to deposit INR 50 </b>(refundable at the venue on the day of the event) either by Paytm (to 7045185177) or in cash to any of the council members in room B-111 by Friday, 22nd March, 2019,<b without which your registration will be deemed null and void.</b>
-    #             <br>
-    #         </body>
-    #         </html>'''
-    print(name)
     str1 = render_template('register.html',name=name)
-    # print(str1)
     str1 = MIMEText(str1, "html")
     txt.attach(str1)
     
@@ -70,5 +48,3 @@ def sendMail(email, name, ImgFileName):
     # Spam people :P
     # for reciever in recievers:
     server.sendmail(FROMADDR, reciever, txt.as_string())
-
-    print("Succesfully sent the mails!")
