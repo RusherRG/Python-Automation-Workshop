@@ -18,7 +18,7 @@ def register():
         return 'Already Registered'
 
     try:
-        passimg = passes.pass_gen(
+        passimg, content['Seat'] = passes.pass_gen(
             content['Name'], content['Email'], content['Payment'])
         mail.sendMail(content['Email'], content['Name'], passimg)
         database.add_participant(content)

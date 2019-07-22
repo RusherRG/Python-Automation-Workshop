@@ -33,4 +33,4 @@ def pass_gen(name, email, payment):
     img1 = Image.open(tp)
     img.paste(img1, (350, 292))
     img.save(s_path)
-    return s+".png"
+    return s+".png", seat
