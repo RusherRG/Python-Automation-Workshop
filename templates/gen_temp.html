@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <style>
+                .descriptor{
+                   font-weight: bold; 
+                }
+
+                #data{
+                    width:80%;
+                    margin:auto;
+                    margin-top: 5vh;
+                }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <body>
+            <center>
+            <h2> Scrape Awayyy </h2>
+            </center>
+                
+            <ul class="collapsible" id="data">
+                    <!-- <li>
+                      <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+                      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    </li>
+                    <li>
+                      <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+                      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    </li>
+                    <li>
+                      <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+                      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    </li> -->
+                    {% for row in csv_data %}
+                        <li>
+                            <div class="collapsible-header">{{row.name}}</div>
+                            <div class="collapsible-body">
+                        
+                                <div><span class="descriptor">Name: </span><span id="name_{{loop.index}}">{{row.name}}</span></div>
+                                <div><span class="descriptor">DOB: </span><span id="dob_{{loop.index}}">{{row.dob}}</span></div>
+                                <div><span class="descriptor">CITY: </span><span id="city_{{loop.index}}">{{row.city}}</span></div>
+                                <div><span class="descriptor">Email: </span><span id="email_{{loop.index}}">{{row.email}}</span></div>
+                                <div><span class="descriptor">Phone: </span><span id="email_{{loop.index}}">{{row.phone}}</span></div>
+                                
+                            </div>
+                        </li>
+                    {% endfor %}
+            </ul>
+                              
+            
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script type="text/javascript"charset="utf-8">
+           
+
+            $(document).ready(function(){
+                $('.collapsible').collapsible();
+            });
+        </script>
+    </body>
+</html>
