@@ -1,7 +1,7 @@
 import csv
 
 def read_csv(filename):
-    with open(filename) as csv_file:
+    with open(filename, 'r') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         data = []
         for row in csv_reader:
@@ -10,9 +10,10 @@ def read_csv(filename):
     return data
 
 def write_csv(data, filename):
-    with open(filename) as csv_file:
+    with open(filename, 'w') as csv_file:
         csv_writer = csv.writer(csv_file, delimiter=',')
-        csv_writer.writerow(data)
+        for row in data:  
+            csv_writer.writerow(row)
 
 def get_unpaid_participants(filename):
     participants = read_csv(filename)

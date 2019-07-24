@@ -16,14 +16,6 @@ def scraper(url):
         email = li_tags[i].select('#email_'+str(i+1))[0].text
         phone = li_tags[i].select('#phone_'+str(i+1))[0].text
         payment = li_tags[i].select('#payment_'+str(i+1))[0].text
-        data_dict = {
-            "name": name,
-            "dob": dob,
-            "city": city,
-            "email": email,
-            "phone": phone,
-            "payment": payment,
-        }
-        data.append(data_dict)
+        data.append([name, dob, city, email, phone, payment])
     
     return data
