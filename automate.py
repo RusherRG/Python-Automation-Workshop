@@ -1,15 +1,99 @@
-from scrape import scraper
-from csv_utils import read_csv, write_csv, get_unpaid_participants
-from generate import _render_template
-from mail import sendmail
-import json
+import csv
+import random
+import os
+from jinja2 import Environment, FileSystemLoader
+from faker import Faker
 
-data = scraper('http://scrape.surge.sh/')
-write_csv(data, "studentdetails.csv")
 
-unpaid_participants, paid_count = get_unpaid_participants("studentdetails.csv")
-total_seats = 500
+def generate_random_data():
+    fake_it = Faker()
+    fake_data = []
+    for _ in range(random.randint(1, 20)):
+        fake = [
+            fake_it.name(),
+            fake_it.date(),
+            fake_it.city(),
+            fake_it.email(),
+            fake_it.phone_number(),
+            "unpaid"
+        ]
+        fake_data.append(fake)
+    return fake_data
 
-for participant in unpaid_participants:
-    html = _render_template(participant[0], total_seats-paid_count)
-    sendmail(to_email=participant[0], html=html)
+
+def read_csv():
+    with open("data.csv", 'r') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        data = []
+        for row in csv_reader:
+            data.append(row)
+
+    return data
+
+
+def write_csv(data, write_type):
+    with open("data.csv", write_type) as csv_file:
+        csv_writer = csv.writer(csv_file, delimiter=',')
+        for row in data:
+            csv_writer.writerow(row)
+
+
+def _render_template(data):
+    file_loader = FileSystemLoader('templates')
+    env = Environment(
+        loader=file_loader,
+        trim_blocks=True,
+        lstrip_blocks=True,
+        keep_trailing_newline=True,
+    )
+    template = env.get_template('template.html')
+    return template.render(data=data)
+
+
+def random_paid(data):
+    for row in data:
+        if row[-1] == "unpaid" and random.randint(0, 2) == 1:
+            row[-1] = "paid"
+    return data
+
+
+def preprocess(data):
+    data_dict = []
+    for row in data:
+        data_dict.append({
+            "name": row[0],
+            "dob": row[1],
+            "city": row[2],
+            "email": row[3],
+            "phone": row[4],
+            "payment": row[5],
+        })
+    return data_dict
+
+
+def run():
+    print("Generating Fake data")
+    data = generate_random_data()
+    write_csv(data, "a")
+
+    print("Randomizing paid info")
+    data = read_csv()
+    data = random_paid(data)
+    write_csv(data, "w")
+
+    print("Preprocess data")
+    data = read_csv()
+    data = preprocess(data)
+
+    print("Rendering HTML")
+    html = _render_template(data)
+    with open('templates/index.html', 'w') as f:
+        f.write(html)
+
+    print("Pushing to surge")
+    os.system("surge templates/ automatescrape.surge.sh")
+
+    print("Success")
+
+
+run()
