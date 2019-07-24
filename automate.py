@@ -1,15 +1,21 @@
-from csv_fetch import read_csv, write_csv
+from scrape import scraper
+from csv_utils import read_csv, write_csv, get_unpaid_participants
+from generate import generate_template
 from mail import sendmail
 import json
 
+# data = scraper('http://csvdata.surge.sh/')
+# for info in data:
+#     write_csv(info.values(), "studentdetails.csv")
 
-def send_reminder():
-    with open('config.json', 'r') as f:
-        config = json.load(f)
-    total_seats = config['total_seats']
-    unpaid, paid_count = read_csv('data.csv')
-    for participants in unpaid:
-        sendmail(to_email=participants[1], name=participants[0], mail_type='remind', seats_rem=total_seats-paid_count)
+# unpaid_participants, paid_count = get_unpaid_participants("studentdetails.csv")
 
+# with open('config.json', 'r') as f:
+#     config = json.load(f)
+# total_seats = 500
 
-send_reminder()
+data = read_csv("studentdetails.csv")
+template = generate_template(data)
+
+# for participant in unpaid_participants:
+#     sendmail(to_email=participant[0], html=template)

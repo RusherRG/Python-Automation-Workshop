@@ -1,6 +1,6 @@
-Name, Phone, DOB, City, Email
-Akshay, 0123456789, 09-10-1999, Mumbai, akshay.padte@somaiya.edu
-Karan, 9876543210, 15-06-1999, Mumbai, karan.sheth@somaiya.edu
-Rushang, 12334567890, 04-11-1999, Mumbai, rushang.g@somaiya.edu,
-Aditya, 7418529630, 10-06-1999, Mumbai, aditya.prajapati@somaiya.edu
-Hetal, 1478523690, 24-06-1999, Mumbai, hetal.kuvadia@somaiya.edu
+Name,Phone,DOB,City,Email,Payment
+Akshay,0123456789,09-10-1999,Mumbai,akshay.padte@somaiya.edu,paid
+Karan,7715905009,15-06-1999,Mumbai,karan.sheth@somaiya.edu,unpaid
+Rushang,9619243034,04-11-1999,Mumbai,rushang.g@somaiya.edu,paid
+Aditya,7977475158,10-06-1999,Mumbai,aditya.prajapati@somaiya.edu,unpaid
+Hetal,9819746588,24-06-1999,Mumbai,hetal.kuvadia@somaiya.edu,paid

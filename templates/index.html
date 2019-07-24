@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <style>
+                .descriptor{
+                   font-weight: bold; 
+                }
+
+                #data{
+                    width:80%;
+                    margin:auto;
+                    margin-top: 5vh;
+                }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <body>
+            <center>
+            <h2> Scrape Awayyy </h2>
+            </center>
+                
+            <ul class="collapsible" id="data">
+                    <li>
+                        <div class="collapsible-header">Name</div>
+                        <div class="collapsible-body">
+                            <div><span class="descriptor">Name: </span><span class="name">Name</span></div>
+                            <div><span class="descriptor">DOB: </span><span class="dob">DOB</span></div>
+                            <div><span class="descriptor">CITY: </span><span class="city">City</span></div>
+                            <div><span class="descriptor">Email: </span><span class="email">Email</span></div>
+                            <div><span class="descriptor">Phone: </span><span class="phone">Phone</span></div>
+                            <div><span class="descriptor">Payment: </span><span class="payment">Payment</span></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header">Akshay</div>
+                        <div class="collapsible-body">
+                            <div><span class="descriptor">Name: </span><span class="name">Akshay</span></div>
+                            <div><span class="descriptor">DOB: </span><span class="dob">09-10-1999</span></div>
+                            <div><span class="descriptor">CITY: </span><span class="city">Mumbai</span></div>
+                            <div><span class="descriptor">Email: </span><span class="email">akshay.padte@somaiya.edu</span></div>
+                            <div><span class="descriptor">Phone: </span><span class="phone">0123456789</span></div>
+                            <div><span class="descriptor">Payment: </span><span class="payment">paid</span></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header">Karan</div>
+                        <div class="collapsible-body">
+                            <div><span class="descriptor">Name: </span><span class="name">Karan</span></div>
+                            <div><span class="descriptor">DOB: </span><span class="dob">15-06-1999</span></div>
+                            <div><span class="descriptor">CITY: </span><span class="city">Mumbai</span></div>
+                            <div><span class="descriptor">Email: </span><span class="email">karan.sheth@somaiya.edu</span></div>
+                            <div><span class="descriptor">Phone: </span><span class="phone">7715905009</span></div>
+                            <div><span class="descriptor">Payment: </span><span class="payment">unpaid</span></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header">Rushang</div>
+                        <div class="collapsible-body">
+                            <div><span class="descriptor">Name: </span><span class="name">Rushang</span></div>
+                            <div><span class="descriptor">DOB: </span><span class="dob">04-11-1999</span></div>
+                            <div><span class="descriptor">CITY: </span><span class="city">Mumbai</span></div>
+                            <div><span class="descriptor">Email: </span><span class="email">rushang.g@somaiya.edu</span></div>
+                            <div><span class="descriptor">Phone: </span><span class="phone">9619243034</span></div>
+                            <div><span class="descriptor">Payment: </span><span class="payment">paid</span></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header">Aditya</div>
+                        <div class="collapsible-body">
+                            <div><span class="descriptor">Name: </span><span class="name">Aditya</span></div>
+                            <div><span class="descriptor">DOB: </span><span class="dob">10-06-1999</span></div>
+                            <div><span class="descriptor">CITY: </span><span class="city">Mumbai</span></div>
+                            <div><span class="descriptor">Email: </span><span class="email">aditya.prajapati@somaiya.edu</span></div>
+                            <div><span class="descriptor">Phone: </span><span class="phone">7977475158</span></div>
+                            <div><span class="descriptor">Payment: </span><span class="payment">unpaid</span></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header">Hetal</div>
+                        <div class="collapsible-body">
+                            <div><span class="descriptor">Name: </span><span class="name">Hetal</span></div>
+                            <div><span class="descriptor">DOB: </span><span class="dob">24-06-1999</span></div>
+                            <div><span class="descriptor">CITY: </span><span class="city">Mumbai</span></div>
+                            <div><span class="descriptor">Email: </span><span class="email">hetal.kuvadia@somaiya.edu</span></div>
+                            <div><span class="descriptor">Phone: </span><span class="phone">9819746588</span></div>
+                            <div><span class="descriptor">Payment: </span><span class="payment">paid</span></div>
+                        </div>
+                    </li>
+            </ul>
+                              
+            
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script type="text/javascript"charset="utf-8">
+           
+
+            $(document).ready(function(){
+                $('.collapsible').collapsible();
+            });
+        </script>
+    </body>
+</html>
