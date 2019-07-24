@@ -3,7 +3,7 @@ from mail import sendmail
 import json
 
 
-def send_reminder():
+def send_reminder(): 
     with open('config.json', 'r') as f:
         config = json.load(f)
     total_seats = config['total_seats']

@@ -5,8 +5,12 @@ def read_csv(filename):
         csv_reader = csv.reader(csv_file, delimiter=',')
         unpaid = []
         paid_count = 0
+        t = 0
         for row in csv_reader:
-            if row[-1]=='unpaid':
+            if t==0:
+                t += 1
+                continue
+            if row[-1]=='false':
                 unpaid.append(row)
             else:
                 paid_count += 1
