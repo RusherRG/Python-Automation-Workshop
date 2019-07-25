@@ -5,7 +5,7 @@ from jinja2 import Environment, FileSystemLoader
 from faker import Faker
 
 
-def generate_random_data():
+def generate_random_data(count):
     fake_it = Faker()
     fake_data = []
     for _ in range(random.randint(1, 20)):
@@ -13,7 +13,7 @@ def generate_random_data():
             fake_it.name(),
             fake_it.date(),
             fake_it.city(),
-            fake_it.email(),
+            "pyauto{}@yopmail.com".format(str(count+_)),
             fake_it.phone_number(),
             "unpaid"
         ]
@@ -72,14 +72,14 @@ def preprocess(data):
 
 
 def run():
-    print("Generating Fake data")
-    data = generate_random_data()
-    write_csv(data, "a")
-
     print("Randomizing paid info")
     data = read_csv()
     data = random_paid(data)
     write_csv(data, "w")
+
+    print("Generating Fake data")
+    data = generate_random_data(len(data))
+    write_csv(data, "a")
 
     print("Preprocess data")
     data = read_csv()

@@ -24,17 +24,17 @@
                 
             <ul class="collapsible" id="data">
                 {% for row in data %}
-                    <li>
-                        <div class="collapsible-header">{{row.name}}</div>
-                        <div class="collapsible-body">
-                            <div><span class="descriptor">Name: </span><span id="name_{{loop.index}}">{{row.name}}</span></div>
-                            <div><span class="descriptor">DOB: </span><span id="dob_{{loop.index}}">{{row.dob}}</span></div>
-                            <div><span class="descriptor">CITY: </span><span id="city_{{loop.index}}">{{row.city}}</span></div>
-                            <div><span class="descriptor">Email: </span><span id="email_{{loop.index}}">{{row.email}}</span></div>
-                            <div><span class="descriptor">Phone: </span><span id="phone_{{loop.index}}">{{row.phone}}</span></div>
-                            <div><span class="descriptor">Payment: </span><span id="payment_{{loop.index}}">{{row.payment}}</span></div>
-                        </div>
-                    </li>
+                <li>
+                    <div class="collapsible-header">{{row.name}}</div>
+                    <div class="collapsible-body">
+                        <div><span class="descriptor">Name: </span><span id="name_{{loop.index}}">{{row.name}}</span></div>
+                        <div><span class="descriptor">DOB: </span><span id="dob_{{loop.index}}">{{row.dob}}</span></div>
+                        <div><span class="descriptor">CITY: </span><span id="city_{{loop.index}}">{{row.city}}</span></div>
+                        <div><span class="descriptor">Email: </span><span id="email_{{loop.index}}">{{row.email}}</span></div>
+                        <div><span class="descriptor">Phone: </span><span id="phone_{{loop.index}}">{{row.phone}}</span></div>
+                        <div><span class="descriptor">Payment: </span><span id="payment_{{loop.index}}">{{row.payment}}</span></div>
+                    </div>
+                </li>
                 {% endfor %}
             </ul>
                               
