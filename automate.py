@@ -11,10 +11,10 @@ def generate_random_data(count):
     for _ in range(random.randint(1, 20)):
         fake = [
             fake_it.name(),
-            fake_it.date(),
+            random.choice([fake_it.date(), ""]),
             fake_it.city(),
             "pyauto{}@yopmail.com".format(str(count+_)),
-            fake_it.phone_number(),
+            random.choice([fake_it.phone_number(), ""]),
             "unpaid"
         ]
         fake_data.append(fake)
