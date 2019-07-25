@@ -13,7 +13,7 @@ def sendmail(to_email, name, seats_rem=0):
     forwarder = "workshop@kjscecodecell.com"
     msg = MIMEMultipart('alternative')
     msg['Label'] = "Python-Automation"
-    msg['Subject'] = "Workshop Payment Reminder"
+    msg['Subject'] = "Last Call for Automation Workshop"
     msg['From'] = forwarder
     msg['To'] = to_email
 

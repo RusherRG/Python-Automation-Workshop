@@ -10,7 +10,7 @@ def read_csv(filename):
             if t==0:
                 t += 1
                 continue
-            if row[-1]=='false':
+            if row[-1]=='False':
                 unpaid.append(row)
             else:
                 paid_count += 1
@@ -21,4 +21,3 @@ def write_csv(data, filename):
     with open(filename) as csv_file:
         csv_writer = csv.writer(csv_file, delimiter=',')
         csv_writer.writerow(data)
-
