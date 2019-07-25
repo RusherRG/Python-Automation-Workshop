@@ -10,10 +10,10 @@ def send_reminder():
     total_seats = config['total_seats']
 
     # unpaid, paid_count = get_unpaid_participants_from_csv()
-    unpaid, paid_count = read_csv('participants.csv')
+    unpaid, paid_count = read_csv('test.csv')
     print(total_seats, paid_count)
     for participant in unpaid:
         sendmail(to_email=participant[1], name=participant[0].split()[0].capitalize(),
-                 seats_rem=total_seats-paid_count-23)
+                 seats_rem=57)
 
 send_reminder()
