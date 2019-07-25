@@ -1,51 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8">
 
-<head>
-    <meta charset="utf-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <style>
+                .descriptor{
+                   font-weight: bold; 
+                }
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <style>
-        .descriptor {
-            font-weight: bold;
-        }
+                #data{
+                    width:80%;
+                    margin:auto;
+                    margin-top: 5vh;
+                }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <body>
+            <center>
+            <h2> Scrape Awayyy </h2>
+            </center>
+                
+            <ul class="collapsible" id="data">
+                <li id="list_1">
+                    <div class="collapsible-header">Name</div>
+                    <div class="collapsible-body">
+                        <div><span class="descriptor">Name: </span><span class="name">Name</span></div>
+                        <div><span class="descriptor">DOB: </span><span class="dob">DOB</span></div>
+                        <div><span class="descriptor">Email: </span><span class="email">Email</span></div>
+                        <div><span class="descriptor">City: </span><span class="city">City</span></div>
+                        <div><span class="descriptor">Phone: </span><span class="phone">Phone</span></div>
+                        <div><span class="descriptor">Payment: </span><span class="payment">Payment</span></div>
+                    </div>
+                </li>
+            </ul>
+                              
+            
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script type="text/javascript"charset="utf-8">
+           
 
-        #data {
-            width: 80%;
-            margin: auto;
-            margin-top: 5vh;
-        }
-    </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-</head>
-
-<body>
-    <center>
-        <h2> Scrape Awayyy </h2>
-    </center>
-
-    <ul class="collapsible" id="data">
-        <li id="list_1">
-            <div class="collapsible-header">Name</div>
-            <div class="collapsible-body">
-                <div><span class="descriptor">Name: </span><span class="name">Name</span></div>
-                <div><span class="descriptor">DOB: </span><span class="dob">DOB</span></div>
-                <div><span class="descriptor">City: </span><span class="city">City</span></div>
-                <div><span class="descriptor">Email: </span><span class="email">Email</span></div>
-                <div><span class="descriptor">Phone: </span><span class="phone">Phone</span></div>
-                <div><span class="descriptor">Payment: </span><span class="payment">Payment</span></div>
-            </div>
-        </li>
-    </ul>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script type="text/javascript" charset="utf-8">
-
-
-        $(document).ready(function () {
-            $('.collapsible').collapsible();
-        });
-    </script>
-</body>
-
+            $(document).ready(function(){
+                $('.collapsible').collapsible();
+            });
+        </script>
+    </body>
 </html>

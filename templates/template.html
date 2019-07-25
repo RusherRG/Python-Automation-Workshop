@@ -28,11 +28,11 @@
                     <div class="collapsible-header">{{row.name}}</div>
                     <div class="collapsible-body">
                         <div><span class="descriptor">Name: </span><span class="name">{{row.name}}</span></div>
-                        {% if row.dob %}
                         <div><span class="descriptor">DOB: </span><span class="dob">{{row.dob}}</span></div>
-                        {% endif %}
-                        <div><span class="descriptor">City: </span><span class="city">{{row.city}}</span></div>
                         <div><span class="descriptor">Email: </span><span class="email">{{row.email}}</span></div>
+                        {% if row.city %}
+                        <div><span class="descriptor">City: </span><span class="city">{{row.city}}</span></div>
+                        {% endif %}
                         {% if row.phone %}
                         <div><span class="descriptor">Phone: </span><span class="phone">{{row.phone}}</span></div>
                         {% endif %}

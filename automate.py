@@ -11,9 +11,9 @@ def generate_random_data(count):
     for _ in range(random.randint(1, 20)):
         fake = [
             fake_it.name(),
-            random.choice([fake_it.date(), ""]),
-            fake_it.city(),
+            fake_it.date(),
             "pyauto{}@yopmail.com".format(str(count+_)),
+            random.choice([fake_it.city(), ""]),
             random.choice([fake_it.phone_number(), ""]),
             "unpaid"
         ]
@@ -63,8 +63,8 @@ def preprocess(data):
         data_dict.append({
             "name": row[0],
             "dob": row[1],
-            "city": row[2],
-            "email": row[3],
+            "email": row[2],
+            "city": row[3],
             "phone": row[4],
             "payment": row[5],
         })
