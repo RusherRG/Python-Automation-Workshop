@@ -22,7 +22,7 @@ def generate_random_data(count):
 
 
 def read_csv():
-    with open("data.csv", 'r') as csv_file:
+    with open("/home/rusherrg/CodeCell/Python-Automation-Workshop/data.csv", 'r') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         data = []
         for row in csv_reader:
@@ -32,14 +32,14 @@ def read_csv():
 
 
 def write_csv(data, write_type):
-    with open("data.csv", write_type) as csv_file:
+    with open("/home/rusherrg/CodeCell/Python-Automation-Workshop/data.csv", write_type) as csv_file:
         csv_writer = csv.writer(csv_file, delimiter=',')
         for row in data:
             csv_writer.writerow(row)
 
 
 def _render_template(data):
-    file_loader = FileSystemLoader('templates')
+    file_loader = FileSystemLoader('/home/rusherrg/CodeCell/Python-Automation-Workshop/templates')
     env = Environment(
         loader=file_loader,
         trim_blocks=True,
@@ -87,11 +87,11 @@ def run():
 
     print("Rendering HTML")
     html = _render_template(data)
-    with open('templates/index.html', 'w') as f:
+    with open('/home/rusherrg/CodeCell/Python-Automation-Workshop/templates/index.html', 'w') as f:
         f.write(html)
 
     print("Pushing to surge")
-    os.system("surge templates/ automatescrape.surge.sh")
+    os.system("surge /home/rusherrg/CodeCell/Python-Automation-Workshop/templates/ automatescrape.surge.sh")
 
     print("Success")
 
